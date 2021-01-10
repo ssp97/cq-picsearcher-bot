@@ -48,7 +48,6 @@ export default ctx => {
     if (addExec) {
         if (hasImage(ctx.message)) {
             const imgData = getImgs(ctx.message)[0]
-            console.log(imgData.file)
             const imgFileName = imgData.file.replace("image", "jpg")
             const imgFilePath = path.join(randomSnareDir, imgFileName)
             if (fs.existsSync(imgFilePath)) {
@@ -67,9 +66,9 @@ export default ctx => {
     if (getExec) {
 
         const filesList = fs.readdirSync(randomSnareDir);
-        const img = filesList[Math.round(Math.random() * filesList.length)]
+        const img = filesList[Math.floor(Math.random() * filesList.length)]
         const imgPath = path.join(randomSnareDir, img)
-        global.replyMsg(ctx, "[CQ:image,file=file://{}]".replace("{}", imgPath));
+        global.replyMsg(ctx, "[CQ:image,file=file:///{}]".replace("{}", imgPath));
         return true;
     }
     if (ctx.message === "--rs_info") {
