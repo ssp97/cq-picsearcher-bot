@@ -187,7 +187,13 @@
       "getVideoInfo": true
     },
     // 语言库（自动回复），请查看“wiki-附加功能-语言库（自动回复）”以了解更多
-    "corpus": []
+    "corpus": [],
+    "randomSnare":{
+      "add": "陷害加图",
+      "get": "随机陷害",
+      "noImage": "没图说个姬掰",
+      "existImage": "休想多次陷害"
+    }
   },
   // saucenao 自定义 host，格式：[protocol://]host[:port]
   "saucenaoHost": ["saucenao.com"],

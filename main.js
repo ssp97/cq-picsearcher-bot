@@ -20,6 +20,7 @@ import logError from './src/logError';
 import event from './src/event';
 import corpus from './src/plugin/corpus';
 import getGroupFile from './src/plugin/getGroupFile';
+import randomSnare from './src/plugin/randomSnare';
 const ocr = require('./src/plugin/ocr');
 
 const bot = new CQWebSocket(global.config.cqws);
@@ -143,6 +144,8 @@ setInterval(() => {
 function commonHandle(e, context) {
   // 黑名单检测
   if (Logger.checkBan(context.user_id, context.group_id)) return true;
+
+  if (randomSnare(context)) return true;
 
   // 语言库
   if (corpus(context)) return true;
